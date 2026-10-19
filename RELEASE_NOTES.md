@@ -17,6 +17,6 @@ unchanged; suggested corrections remain a separate patch and alignment note.
 
 The archive can be uploaded to a Zenodo draft. Before final publication,
 choose licensing terms, confirm author metadata, and finalize the paper's
-availability wording. The public paper repository is https://github.com/ElyasheevLeibtag/new-directions-in-irrationality.
+availability wording. The public paper repository is https://github.com/RamanujanMachine/new-directions-in-irrationality.
 The Zenodo record and DOI have not yet been created. The repository URL can
 be included in the Zenodo record metadata.
