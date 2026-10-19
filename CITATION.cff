@@ -22,5 +22,5 @@ keywords:
   - zeta values
   - reproducible computation
 abstract: "Python notebooks, exact algebraic checks, arithmetic and spectral certificates supporting New Directions in Irrationality. See COVERAGE.md for the mathematical inputs and verification scope. Three pinned Lean source snapshots are included, with explicit prime-number-theorem assumptions and no independent build claimed."
-repository-code: "https://github.com/ElyasheevLeibtag/new-directions-in-irrationality"
+repository-code: "https://github.com/RamanujanMachine/new-directions-in-irrationality"
 url: "https://github.com/ElyasheevLeibtag/new-directions-in-irrationality"
