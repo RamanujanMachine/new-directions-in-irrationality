@@ -3,9 +3,12 @@
 This directory contains public source snapshots of three RamanujanMachine
 projects selected by the authors. All **256 Lean source files**, the original
 Lake configurations and dependency manifests are included without changes.
-These are source copies at exact revisions, not GitHub forks. The upstream
-repositories were private when copied; no access to them is needed to read
-these snapshots. The dependencies named in the manifests are public.
+These are source copies at exact revisions, not GitHub forks. The original
+repositories are public:
+[meijerg_zeta3_zeta4](https://github.com/RamanujanMachine/meijerg_zeta3_zeta4),
+[zeta2_four_trajectory_matrices](https://github.com/RamanujanMachine/zeta2_four_trajectory_matrices)
+and [zetas_irr](https://github.com/RamanujanMachine/zetas_irr).
+The dependencies named in the manifests are public.
 
 **Verification status:** source identity and the statements below were checked.
 The projects have not been independently compiled during preparation of this
