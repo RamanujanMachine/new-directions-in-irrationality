@@ -43,12 +43,15 @@ Git allows commit dates to be specified by their creator; see the
 [Git documentation](https://git-scm.com/docs/git-commit#_commit_information).
 
 This paper repository was first published on **19 October 2026**. The three
-original RamanujanMachine repositories and their histories remain private.
-This public repository contains attributed source snapshots, not GitHub
-forks or imported copies of the full upstream histories. All Lean source
-files, Lake configuration files and pinned dependency manifests needed for
-the documented build procedures are included. See the [Lean guide](lean/README.md)
-for the exact theorem statements, assumptions and build status.
+original RamanujanMachine repositories are public, with their full histories:
+[meijerg_zeta3_zeta4](https://github.com/RamanujanMachine/meijerg_zeta3_zeta4),
+[zeta2_four_trajectory_matrices](https://github.com/RamanujanMachine/zeta2_four_trajectory_matrices)
+and [zetas_irr](https://github.com/RamanujanMachine/zetas_irr). The `lean/`
+folder here contains exact copies of their Lean source at the commits listed
+above (copies, not GitHub forks). All Lean source files, Lake configuration
+files and pinned dependency manifests needed for the documented build
+procedures are included. See the [Lean guide](lean/README.md) for the exact
+theorem statements, assumptions and build status.
 
 ## Reading the supplement
 
