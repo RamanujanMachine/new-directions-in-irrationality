@@ -47,7 +47,7 @@ are retained.
 
 ## Items to settle with the final release
 
-- Lean: three exact source snapshots are now included. The source-level
+- Lean: the three projects are linked at pinned revisions. The source-level
   statement map and PNT assumptions are in `lean/README.md`. The Meijer
   exports give approximation-rate bounds, the ζ(2) export states a measure
   bound, and the independence development has separate main theorems.

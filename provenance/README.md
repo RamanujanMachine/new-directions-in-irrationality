@@ -41,15 +41,11 @@ checker were prepared with AI assistance. Their execution is recorded in the
 verification reports; this does not change the provenance of the mathematical
 proofs in the supplied manuscript.
 
-## Lean copies added in rc2
+## Lean formalizations
 
-`lean_file_origins.json` records each unchanged source/configuration copy.
-All upstream `.lean` files are included. `file_origins.json` and
-`source_changes.json` retain the rc1 computational provenance; rc2 packaging
-documentation is described in `../RELEASE_NOTES.md`. Historical source
-comments are preserved, while the current guide states what was actually
-checked. The original private repositories were not modified.
+The Lean projects are not copied into this repository; they are linked at
+pinned revisions in their original RamanujanMachine repositories.
+`lean_upstreams.json` records those revisions, toolchains and mathlib pins.
+`file_origins.json` and `source_changes.json` retain the computational
+provenance; packaging changes are described in `../RELEASE_NOTES.md`.
 
-The GitHub working copy adds the verified personal repository URL to the
-README, citation metadata and release notes; computational content is unchanged
-from the combined rc2 archive. Its manifests are regenerated for those edits.

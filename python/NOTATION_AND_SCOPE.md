@@ -2,7 +2,7 @@
 
 This companion follows the supplied manuscript section, not the older notation or
 theorem numbering in the archived supporting articles. It contains Python
-only. Historical provenance records mention earlier Lean sources. The combined package includes pinned Lean source copies in `../lean/`, with assumptions and build status documented in `../lean/README.md`. These notebooks do not execute Lean.
+only. Historical provenance records mention earlier Lean sources. The Lean formalizations are in the original RamanujanMachine repositories, linked with their assumptions and build status from `../lean/README.md`. These notebooks do not execute Lean.
 
 ## Common notation
 

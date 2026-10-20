@@ -15,7 +15,7 @@ every experiment or formally verify every theorem in the paper.
 | `app:gregory-series`, `eq:hh-T`, `eq:hh-detT`, `eq:hh-Tinf`, `eq:hh-cyclic`, `lem:hh-roots`, `prop:hh-gap` | `additional/gregory/verify_gregory.py` | Printed matrix identities, cubic/root-bound algebra, rigorous positive threshold margin at M=7165 |
 | Equal-accuracy plots and Gregory experimental exponent plot | Rendered figures in `manuscript/figures/` | Exported figures only; raw sampled data and plotting notebooks were not supplied |
 | Broad CMF trajectory search / `ramanujandata` | Not included | Repository and exact search-data revision still needed for these experiments |
-| Lean formalizations | Three pinned source copies; [Lean guide](lean/README.md) | Source identity checked; theorem scope and PNT assumptions documented; no independent Lean build or complete notebook-to-Lean bridge claimed |
+| Lean formalizations | Linked at pinned revisions in the original repositories; [Lean guide](lean/README.md) | Theorem statements checked; theorem scope and PNT assumptions documented; no independent Lean build or complete notebook-to-Lean bridge claimed |
 
 The additional analytic scripts print numerical root approximations as well
 as exact identities. Their decimal printouts are not interval certificates;

@@ -33,7 +33,7 @@ Exact finite matrix and readout comparisons are diagnostics, not proofs of all-d
 
 The full symbolic pairing of Lemma 6.17 is reconstructed from the paper parameters in `dual_pairing.py` and verified exactly by notebooks 01 and 03. The original cited script is also supplied in `../../additional/analytic/`, with its own execution log. The source certificates' legacy `NUMERICAL_CANDIDATE` status fields are preserved without treating them as proof: each notebook reruns the source and asserts the needed exact inequalities.
 
-`SOURCE_MANIFEST.json` records original paths and SHA-256 hashes for the unchanged supplied Python certificate modules. `companion.py` is a new documented Python interface in the paper's notation; `dual_pairing.py` derives the missing symbolic connection certificate from the paper's defining equations. These Python notebooks do not create or execute Lean. The combined supplement includes unchanged Lean source snapshots; see `../../lean/README.md`.
+`SOURCE_MANIFEST.json` records original paths and SHA-256 hashes for the unchanged supplied Python certificate modules. `companion.py` is a new documented Python interface in the paper's notation; `dual_pairing.py` derives the missing symbolic connection certificate from the paper's defining equations. These Python notebooks do not create or execute Lean. The Lean formalizations are linked from `../../lean/README.md`.
 
 ## Manuscript rounding correction
 
