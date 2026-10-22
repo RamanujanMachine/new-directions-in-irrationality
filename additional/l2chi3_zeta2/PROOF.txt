@@ -1,0 +1,875 @@
+ANALYTIC LIMITS AND POSITIVE DELTA FOR EVERY FIXED INTEGER MIXTURE
+MG(5,2,5,5,1), 22 October 2026
+
+The positive beta integral and exact initial-state evaluation in Section 1A
+identify the limits and the recessive solution. The notebook's exact matrix
+asymptotics supply the exponential error bound. No limit or error-rate
+assumption is retained in this combined argument.
+
+The arithmetic argument below is unchanged in substance. Its finite chamber
+calculations and interval comparisons are checked by the standalone verifier;
+the uniform prime-valuation interpretation uses the written lemmas. The
+Python files are not a proof-assistant formalization of those lemmas.
+
+MAIN CONCLUSION
+
+For every fixed (A,B) in Z^2 other than (0,0), put
+
+  alpha(A,B) = A(C+2 Z/3)+B(C-2 Z/3),
+  C=L(2,chi_{-3}),  Z=zeta(2).
+
+The indicated CMF readouts satisfy
+
+  liminf delta_N(A,B) > 0.00010.
+
+In particular every alpha(A,B) is irrational, and 1,C,Z are linearly
+independent over Q. The constant 0.00010 is a deliberately rounded lower
+bound. It is not the much larger delta of the special minus readout.
+
+1. THE SEQUENCE AND THE ANALYTIC CONCLUSIONS
+
+Use MG(5,2,5,5,1) at z=1, with
+
+  start = (-1,-1,2,7/3,5/2; 0,0,0,1/3,1/2),
+  direction = (-10,-8,12,6,5; 0,1,2,0,2).
+
+Let G(n) be its standard four-dimensional trajectory matrix. Its last row
+has zero entries in columns 0,1,2. Write Q(n)=G(n)[0:3,0:3],
+W_N=Q(0)...Q(N-1), U_N=W_N^{-T}, and v_N=U_N e_0.
+This is the existing restriction from dimension four to dimension three.
+No additional reduction of the whole CMF is asserted.
+
+The fixed rows are
+
+  D=(243648,-498096,264600),
+  X=(190344,-389162,206743),
+  Y=(400824,-819330,435234).
+
+Set r_C=(X v_N)/(D v_N), r_Z=(Y v_N)/(D v_N).
+Section 1A and the matrix argument in the notebook give
+r_C -> C, r_Z -> Z, and, for every epsilon>0,
+
+  |r_C-C|+|r_Z-Z| <= exp(-(E-epsilon)N)
+
+for all sufficiently large admissible N, where
+
+  E = 64.476159691897769244147439665711... .
+
+The same bound holds for every fixed linear mixture, up to a constant
+depending on A,B. The arithmetic denominator bound is supplied below.
+Denominators are always reduced scalar denominators.
+
+1A. ANALYTIC IDENTIFICATION OF THE LIMITS
+
+## Analytic completion: the initial MG state and its recessiveness
+
+This proves the two limit identifications used in the arithmetic argument.
+The gamma/beta integral argument follows the construction in
+Appendix B.1 of arXiv:2610.27799 (the zeta(3), zeta(4) recessiveness lemma).
+No irrationality or linear-independence assumption is used.
+
+### 1. The actual special-function state
+
+Let theta = z d/dz and
+\[
+G_n(z)=G_{5,5}^{5,2}\!\left(
+z\;\middle|\;
+\begin{matrix}
+-1-10n,-1-8n;\ 2+12n,7/3+6n,5/2+5n\\
+0,n,2n,1/3,2n+1/2
+\end{matrix}\right).
+\]
+Set $\mathcal G_n=(G_n(1),(\theta G_n)(1),(\theta^2G_n)(1))$.
+The contiguous identities defining the Meijer-G CMF, and the zero lower-left
+block of its four-dimensional trajectory matrix, give
+\[
+\mathcal G_{n+1}=\mathcal G_n Q(n).
+\]
+This is the special-function solution of the same restricted matrix used in
+the arithmetic calculation.
+
+On the upward line $\Re w=1/2$, the Mellin--Barnes formula is
+\[
+G_n(z)=\frac1{2\pi i}\int
+\frac{\Gamma(w)\Gamma(w+n)\Gamma(w+2n)\Gamma(w+1/3)
+\Gamma(w+2n+1/2)\Gamma(10n+2-w)\Gamma(8n+2-w)}
+{\Gamma(w+12n+2)\Gamma(w+6n+7/3)\Gamma(w+5n+5/2)}
+z^{-w}\,dw .
+\]
+The line separates all left and right poles for every integer $n\ge0$.
+For $z>0$, this integral and its first two theta derivatives converge
+absolutely. Along the vertical line the gamma factors give exponential
+decay in the imaginary direction.
+
+### 2. A positive integral in Laplace form
+
+Apply Euler's beta integral to the three ratios
+\[
+\frac{\Gamma(w+2n)}{\Gamma(w+12n+2)},\quad
+\frac{\Gamma(w+1/3)}{\Gamma(w+6n+7/3)},\quad
+\frac{\Gamma(w+2n+1/2)}{\Gamma(w+5n+5/2)}.
+\]
+Their beta differences are $10n+2,6n+2,3n+2$.
+For the fourth integration use
+\[
+\Gamma(w+n)\Gamma(8n+2-w)
+=\Gamma(9n+2)\int_0^1 r^{w+n-1}(1-r)^{8n+1-w}\,dr.
+\]
+Every beta parameter has positive real part on the chosen contour.
+Absolute convergence permits interchanging these integrations.
+Writing $u=xyt$ and $H_z=z(1-r)+ur$, Mellin inversion gives
+\[
+\frac1{2\pi i}\int
+\Gamma(w)\Gamma(10n+2-w)
+\left(\frac{z(1-r)}{ur}\right)^{-w}dw
+=\Gamma(10n+2)\left(\frac{ur}{H_z}\right)^{10n+2}.
+\]
+Consequently
+\[
+\boxed{
+G_n(z)=\frac{\Gamma(9n+2)}{\Gamma(6n+2)\Gamma(3n+2)}
+\int_{[0,1]^4}
+\frac{
+x^{12n+1}y^{10n+4/3}t^{12n+3/2}r^{11n+1}
+(1-x)^{10n+1}(1-y)^{6n+1}(1-t)^{3n+1}(1-r)^{8n+1}
+}{[z(1-r)+xytr]^{10n+2}}\,dx\,dy\,dt\,dr .
+}
+\]
+In particular, $G_n(1)>0$.
+
+This is a Laplace integral. At $z=1$, let $H=1-r+xytr$ and
+\[
+\Phi=
+\frac{x^{12}y^{10}t^{12}r^{11}
+(1-x)^{10}(1-y)^6(1-t)^3(1-r)^8}{H^{10}},
+\quad
+\omega=\frac{x\,y^{4/3}t^{3/2}r(1-x)(1-y)(1-t)(1-r)}{H^2}.
+\]
+Then $G_n(1)=\Gamma(9n+2)/(\Gamma(6n+2)\Gamma(3n+2))
+\int\omega\,\Phi^n$.
+An exact saddle evaluation is unnecessary to identify the recessive mode.
+The following elementary beta bound already separates it from both other modes.
+
+### 3. An exponential upper bound for the whole state
+
+Since $H- xyt=(1-r)(1-xyt)\ge0$, replacing $H$ by $xyt$ in the
+denominator gives, for $n\ge1$,
+\[
+\begin{aligned}
+0<G_n(1)\le\beta_n
+&=\frac{\Gamma(9n+2)}{\Gamma(6n+2)\Gamma(3n+2)}
+B(2n,10n+2)B(1/3,6n+2)\\
+&\qquad {}\cdot B(2n+1/2,3n+2)B(11n+2,8n+2)\\
+&=\frac{\Gamma(1/3)\Gamma(9n+2)\Gamma(2n)\Gamma(10n+2)
+\Gamma(2n+1/2)\Gamma(11n+2)\Gamma(8n+2)}
+{\Gamma(12n+2)\Gamma(6n+7/3)\Gamma(5n+5/2)\Gamma(19n+4)}.
+\end{aligned}
+\]
+Gamma recurrence, or Stirling's formula, gives the exact ratio limit
+\[
+\eta=\lim_{n\to\infty}\frac{\beta_{n+1}}{\beta_n}
+=\frac{9^9\,2^4\,10^{10}\,11^{11}\,8^8}
+{12^{12}\,6^6\,5^5\,19^{19}}
+=\frac{228249336488800000}{1978419655660313589123979}
+<10^{-6}.
+\]
+Numerically, $\eta=1.15369525285382354677\ldots\,10^{-7}$.
+Thus $\beta_n=\exp(n\log\eta+o(n))$.
+
+To bound derivatives, put $a=10n+2$ and $h=z(1-r)/H_z$, so $0\le h\le1$.
+On the positive integrand, theta differentiation multiplies by
+\[
+-ah,\qquad a(a+1)h^2-ah
+\]
+for the first and second derivatives respectively. Differentiation under the
+integral is justified on compact positive $z$ intervals by domination.
+Therefore, at $z=1$,
+\[
+|\theta G_n(1)|\le a\beta_n,\qquad
+|\theta^2G_n(1)|\le a(a+2)\beta_n.
+\]
+All three components are exponentially small, and the state is nonzero because
+its first component is positive. This is a bound on the entire state, not just
+one readout.
+
+### 4. Identification of the recessive spectral mode
+
+In the notebook's normalization,
+\[
+T=\lim_{n\to\infty}
+\frac{D_g(n)^{-1}Q(n)D_g(n+1)}{Q_{00}(n)},
+\quad D_g(n)=\operatorname{diag}(1,n^{-1},n^{-2}),
+\quad \lim Q_{00}(n)=s_\infty=156660580321280.
+\]
+The three simple roots of $T$ are $r,\lambda,\bar\lambda$, with
+\[
+r=3.25999287587431764\ldots\,10^{-29},\qquad
+|\lambda|=R=0.32723294395332618\ldots.
+\]
+The actual, unscaled exponential root moduli of the state recurrence are
+\[
+s_\infty r=5.1071237577770912\ldots\,10^{-15},
+\qquad
+s_\infty R=5.1264502899968973\ldots\,10^{13}
+\quad\text{(twice)}.
+\]
+Rational root isolation verifies
+$0<s_\infty r<\eta<1<s_\infty R$.
+The exact first-order gauge and the summable-perturbation argument in the
+notebook supply a fundamental solution basis with these exponential moduli.
+Polynomial gauges do not change exponential growth. A nonzero component in
+the two-dimensional growing sector would have norm
+$(s_\infty R)^{n+o(n)}$; oscillations of the conjugate roots cannot cancel
+the whole state vector because their asymptotic eigenvectors are independent.
+The bound in Section 3 rules out that sector. Hence $\mathcal G_n$ is the
+nonzero solution in the one-dimensional recessive sector.
+
+### 5. Exact evaluation at the initial point
+
+With $s=-w$, the Barnes kernel at $n=0$ is $\pi^2\csc^2(\pi s)F_0(s)$, where
+\[
+F_0(s)=\frac{(s+1)^2}
+{(-s)(1-s)(1/3-s)(4/3-s)(1/2-s)(3/2-s)}.
+\]
+For any $\rho\ge0$, closing the contour $\Re s=-1/2$ to the left gives
+\[
+\frac1{2\pi i}\int
+\frac{\pi^2\csc^2(\pi s)}{\rho-s}\,ds
+=\sum_{m\ge1}\frac1{(\rho+m)^2}
+=\psi_1(\rho+1).
+\]
+The left vertical edge tends to zero and the horizontal edges vanish
+exponentially. The orientation here is fixed, giving the positive sign.
+The exact partial fraction expansions of $s^kF_0(s)$, $k=0,1,2$, therefore
+evaluate the three initial moments.
+
+Using
+$\psi_1(1)=Z$, $\psi_1(1/3)=4Z+9C/2$, and $\psi_1(1/2)=3Z$,
+which follow directly by splitting their defining reciprocal-square series,
+the result is
+\[
+\boxed{
+\mathcal G_0=
+\left(
+\frac{14823}{70}C+\frac{6477}{35}Z-\frac{789349}{1680},\
+\frac{16362}{35}C+\frac{8676}{35}Z-\frac{108221}{140},\
+\frac{23976}{35}C+\frac{10368}{35}Z-\frac{35787}{35}
+\right).
+}
+\]
+Equivalently,
+$\mathcal G_0=(1,9C/2+3Z,2Z)\widehat B_0$ with the endpoint matrix already
+derived in the notebook.
+The exact readout identities are
+\[
+D\mathcal G_0^T=3888,\qquad
+X\mathcal G_0^T=3888C,\qquad
+Y\mathcal G_0^T=3888Z.
+\]
+In particular the limiting denominator is nonzero, without assuming any
+irrationality or independence.
+
+### 6. Dual convergence and the identified limits
+
+The checked observation determinant
+\[
+\det\begin{pmatrix}e_0^T\\e_0^TT\\e_0^TT^2\end{pmatrix}
+=\frac{22488133988255638843697971020794}
+{3580793883472610909356222529573}\ne0
+\]
+shows that the terminal $e_0$ sees the minimal mode in the inverse-transpose
+product. With the right-product convention, dual convergence recovers the
+transpose of the initial recessive row. Thus, for suitable nonzero scalars $a_N$,
+\[
+W_N^{-T}e_0
+=a_N\left(\mathcal G_0^T+
+O\left(e^{-EN+o(N)}\right)\right),
+\qquad E=\log(R/r)=64.47615969189776924414\ldots.
+\]
+Here $D_g(N)^Te_0=e_0$, so the terminal gauge causes no moving readout.
+Taking the three exact pairings above proves, without a limit assumption,
+\[
+\frac{XW_N^{-T}e_0}{DW_N^{-T}e_0}\longrightarrow C,\qquad
+\frac{YW_N^{-T}e_0}{DW_N^{-T}e_0}\longrightarrow Z,
+\]
+and both errors are at most $\exp(-EN+o(N))$.
+Every fixed rational linear combination inherits this upper error rate.
+
+This proves both analytic inputs of the arithmetic
+argument. The arithmetic calculation, its written prime-valuation lemmas,
+and its numerical lower comparison are unchanged.
+
+Sources for the standard integral identities:
+https://dlmf.nist.gov/16.17.E1
+https://dlmf.nist.gov/5.12.E1
+https://dlmf.nist.gov/5.13.E1
+
+The accompanying analytic_limit_certificate.py checks the finite rational
+algebra, beta exponents and cancellations, root separation, and initial
+readout identities. Barnes quadrature at 50 and 80 digits is included only
+as an independent regression; no numerical quadrature is used in the proof.
+
+
+2. THE DUAL ENDPOINT AND ITS TRANSPORT
+
+Define the rational function
+
+ F_n(s) = (s+1)_(10n+1) (s+1-n)_(9n+1)
+          / [(2n-s)_(10n+2) (1/3-s)_(6n+2)
+             (2n+1/2-s)_(3n+2)],
+
+where (x)_m is the rising factorial. Its degree is -4. Its poles are
+the integer, third-integer and half-integer progressions in the denominator.
+For a pole rho=j+r, put v_rho=-Res_{s=rho} F_n(s), and set
+
+ h_0(j)=sum_{l=1}^j l^{-2},
+ h_r(j)=sum_{l=0}^j (l+r)^{-2}  (r=1/3,1/2).
+
+The rows B_0,B_I,B_T,B_H, in columns k=0,1,2,3, are
+
+ B_0,k = -sum_rho v_rho h_r(j) rho^k,
+ B_I,k = sum_integer v_rho rho^k,
+ B_T,k = sum_third v_rho rho^k,
+ B_H,k = sum_half v_rho rho^k.
+
+The residue theorem gives B_I+B_T+B_H=0 in columns 0,1,2.
+Let Bhat_n be rows (B_0,B_T,B_H), columns (0,1,2). Then
+
+                  Bhat_(n+1) = -Bhat_n Q(n).                 (2.1)
+
+Here is an all-n justification, rather than an interpolation from examples.
+The unnormalized Mellin--Barnes kernel of this Meijer-G field is
+
+ I_n(s)= [prod_j Gamma(b_j-s) prod_{i=0,1} Gamma(1-a_i+s)]
+         / prod_{i=2,3,4} Gamma(a_i-s)
+       = (-1)^n pi^2 csc^2(pi s) F_n(s).                    (2.2)
+
+The last equality follows twice from Gamma reflection. Gamma recurrence
+is exactly the contiguous relation used by the Meijer-G constructor.
+Take the Barnes contour Re(s)=-1/2, between the left and right poles;
+it remains admissible along this walk. The moments through order three
+converge. Small contours enclosing the finite third- and half-pole families
+give B_T and B_H, up to fixed nonzero constants and the factor (-1)^n.
+Zero residues at an endpoint permit the same contours to be used during
+integer parameter shifts. Consequently those two rows obey (2.1).
+
+For completeness the rational row can be extracted without assuming any
+linear independence of C and Z. Close the Barnes contour to the right.
+For k<=2 use F_n(s)s^k=-sum_rho v_rho rho^k/(s-rho). At an integer pole j,
+the csc^2 expansion supplies the correction pi^2/3. Summing the other
+integer residues gives H_j^(2)+Z; hence their net coefficient is
+H_j^(2)-Z. At a noninteger pole j+r, reflection for the trigamma function
+gives the net coefficient h_r(j)-psi_1(r). Thus, up to contour orientation,
+the Barnes period row is
+
+  B_0 + Z B_I + psi_1(1/3) B_T + psi_1(1/2) B_H
+  = B_0 + (9 C/2+3 Z) B_T + 2 Z B_H.
+
+This is an identity of explicitly evaluated periods, not an argument
+equating coefficients of purportedly independent constants. Subtracting
+the two already transported residue rows proves transport of B_0 as well.
+The zero lower-left block of G gives (2.1) for the restriction.
+
+Let w_n be the cross product of columns 1 and 2 of Bhat_n. Direct initial
+evaluation, followed by (2.1), gives
+
+  r_C = (4 w_1-6 w_2)/(18 w_0),    r_Z=w_2/(2 w_0),
+
+and therefore
+
+  r(A,B) = 2[(A+B)w_1-3B w_2]/(9w_0).                     (2.3)
+
+Here the complete initial matrix, not just one initial vector, is
+
+ Bhat_0=[[-789349/1680,-108221/140,-35787/35],
+         [1647/35,3636/35,5328/35],
+         [768/35,-1116/35,-2808/35]],  det(Bhat_0)=-1944/35.
+
+If A_0=Bhat_0^(-T), its rows satisfy
+3888 A_0[0,:]=D, 3888(4 A_0[1,:]-6 A_0[2,:])/18=X,
+and 3888 A_0[2,:]/2=Y. These nine rational equalities identify the
+fixed readouts for every transported vector.
+
+At n=0 the cofactor vector is
+
+  w_0 = (-121824/35, -205902/7, -400824/35).
+
+For a rational vector w define its positive rational content by
+
+  cont(w)=gcd(reduced numerators)/lcm(reduced denominators).
+
+Equivalently v_p(cont(w))=min_i v_p(w_i). If u=w/cont(w) is primitive
+integral, the actual denominator in (2.3) is
+
+ q_n(A,B)=9|u_0| / gcd(9u_0,2[(A+B)u_1-3B u_2]) <=9|u_0|. (2.4)
+
+The joint content gives a sufficient uniform bound. It is not being
+asserted to be the exact pairwise gcd for every A,B.
+
+3. THE FORWARD ENDPOINT: THE SECOND ARITHMETIC PRESENTATION
+
+The forward field is 5F4 at z=1 with parameters
+
+ a=(-1-10n,-1-8n,2+12n,7/3+6n,5/2+5n),
+ b=(1+n,1+2n,4/3,3/2+2n).
+
+Use the rational gamma quotient
+
+ R_n(t)=(t+2n+1)_(10n+1) (t+4/3)_(6n+1)
+        (t+2n+3/2)_(3n+1)
+        /[(t-10n-1)_(10n+2) (t-8n-1)_(9n+2)].
+
+It has degree -1, double poles at 0,...,8n+1 and single poles at
+-n,...,-1 and 8n+2,...,10n+1. Let
+
+ P_n(t)=(19440n^4+13812n^3+3219n^2+308n+11)/3
+       -(4320n^3+4410n^2+1045n+69)t/6
+       -(1080n^2+315n+7)t^2/6 +3t^3.
+
+Write
+
+ S_n(t)=R_n(t)P_n(t)=J_n(t)+sum_k[a_k/(t-k)^2+b_k/(t-k)],
+
+where J_n is polynomial of degree two. The coefficient of 1/t at infinity
+is exactly zero, so sum_k b_k=0. This can also be checked by the three
+root-power differences saved in forward_infinity_identity.json.
+
+For rational rho and integer m use the signed finite harmonic sums
+
+ H_rho^(j)(m)=sum_{l=0}^{m-1}(rho+l)^(-j)   if m>=0,
+             -sum_{l=m}^{-1}(rho+l)^(-j)   if m<0.
+
+No zero denominator occurs in the instances below. Use
+
+ (rho_I,m_I)=(1,2n), (rho_T,m_T)=(1/3,1),
+ (rho_H,m_H)=(1/2,2n+1).
+
+Define rational numbers
+
+ q^f_n=sum_k a_k,
+ p^f_r=sum_k[a_k H_rho_r^(2)(k+m_r)
+             -b_k H_rho_r^(1)(k+m_r)]
+        -sum_{j=0}^2 [t^j]J_n(t) (-1)^j zeta(-j,rho_r+m_r),
+
+where zeta(-j,x)=-B_(j+1)(x)/(j+1) is a rational Bernoulli polynomial.
+The forward rational vector is
+
+             f_n=(q^f_n,p^f_T-p^f_I,p^f_H-p^f_I).
+
+Its exact relation to the dual vector is
+
+  f_n = (35/1944) [prod_{j=0}^{n-1} det Q(j)]^(-1) w_n.    (3.1)
+
+To justify this identity uniformly, R_n(t) is exactly
+prod_i Gamma(t+a_i)/(Gamma(t+1)prod_j Gamma(t+b_j)). Its double-pole
+coefficient at t=0 is
+
+ a_n,0=Gamma(12n+2)Gamma(6n+7/3)Gamma(5n+5/2)
+       /[Gamma(2n+1)Gamma(4/3)Gamma(2n+3/2)
+         Gamma(10n+2)Gamma(8n+2)Gamma(n+1)].
+
+The sum of its double-pole moments is a_n,0 times the terminating 5F4
+solution. Its simple-residue moments give the rational solution removed
+by the existing restriction.
+
+The sums of R_n(-rho_r-m) z^(-rho_r-m), starting at m=m_r, are the three
+infinity Frobenius solutions for the positive upper parameters. The initial
+terms vanish until t=-a_2,-a_3,-a_4, respectively, because of the numerator
+root intervals. Integer parameter shifts only add/remove these zero terms.
+All three series have the same logarithmic coefficient at z=1, since
+R_n(t)=1/t+O(t^-2). Their differences are regular there. Partial fractions,
+or Abel finite parts with z=exp(epsilon), evaluate these differences as
+
+ (psi_1(rho_r)-psi_1(1)) times the double-pole row,
+ plus a fixed digamma difference times the simple-residue row,
+ minus the rational row (p^f_r-p^f_I).
+
+The displayed Bernoulli term is precisely the finite part of the polynomial
+piece. This explains why dropping that term or the starting-point shifts
+would give the wrong numerator. Gamma recurrence transports all these
+rows by the forward matrix M(n), with scalar a_(n+1),0/a_n,0.
+
+The adjoint pairing is the exact identity
+
+   M(n) K(n+1) Q(n)^T=c(n)K(n),
+
+with K as in the included forward_dual_identity.json; P_n is its
+first column read as a polynomial. Its rows are
+
+ [(19440n^4+13812n^3+3219n^2+308n+11)/3,
+  (6n+1)(720n^2+443n+46)/6, -5(216n^2+75n+7)/6],
+ [-(4320n^3+4410n^2+1045n+69)/6,(360n^2+115n+8)/2,1],
+ [-(1080n^2+315n+7)/6,-2,0], [3,0,0].
+
+Gamma recurrence gives c(n)a_(n+1),0/a_n,0=1. At n=0 the three rational
+forward rows before multiplication by K are
+
+ [41/3,35/3,35/3,35/3],
+ [1807/16,1339/16,8495/144,37819/1296],
+ [2353/54,818/27,3649/216,311/432].
+
+Multiplying by K(0) gives -1/3888 times, respectively,
+D, (9/2)X+3Y, and 2Y. The certificate checks all nine entries. Their
+transport, the cofactor transformation in (2.1), and the initial value
+35/1944 prove (3.1). Small-depth direct equalities are additional regression
+tests; they are not the justification for all n.
+
+4. THE EXACT NORMALIZATION SCALAR
+
+Put Delta_n=prod_{j=0}^{n-1} det Q(j). There is a rational function g(n)
+such that
+
+ Delta_n=C_0^n g(n)/g(0) prod_(A,beta,m) [(beta)_(An)]^m,
+ C_0=2^8 3^30,
+
+with triples
+
+ (12,2/3,-1), (8,1,1), (5,1/3,-1), (8,1/3,1),
+ (6,1,-1), (5,1,1), (4,1/6,1), (9,1/2,-1),
+ (6,2/3,1), (5,2/3,1), (4,1/3,-1).
+
+Here
+
+ g(n)=3936600(8n+1)(9n+1)(15n+2)(20n+3)(24n+1)^2
+      /[(2n+1)(3n+1)^2(6n+1)(8n+3)(9n+2)(10n+3)
+        (12n+1)(15n+1)(15n+4)(18n+1)^2(24n+5)(30n+7)].
+
+The one-step identity is verified symbolically in forward_scale_gamma.py.
+The sum of A*m is zero. The absolute prime-valuation mass of g(n)/g(0)
+is O(log n), so it does not affect the exponential content rate.
+
+5. THE ELEMENTARY FORWARD PRIME BOUND, INCLUDING THE INFINITE TAIL
+
+For p>3 and p^2>132n+30 put x=n/p, e=p mod 6. Group the roots of R_n
+by their integer representative r modulo p, and put y=r/p. Its high roots
+are in the following intervals, with lattice offsets as indicated:
+
+ numerators: (-12x-y,-2x-y), offset 0;
+             (-6x-y,-y), offset 2/3 if e=1, 1/3 if e=5;
+             (-5x-y,-2x-y), offset 1/2;
+ denominators: (-y,10x-y), (-x-y,8x-y), both offset 0.
+
+Endpoints have the exact constant offsets -1, -4/3, -3/2 in the
+numerators, and 0,1 in each denominator interval. The certificate includes
+the boundary strips; it does not simply discard endpoint roots.
+
+If a packet has h=#numerator roots-#denominator roots, double-pole
+coefficients have valuation >=h+2 and simple coefficients >=h+1.
+The harmonic sums cost at most two and one powers of p, respectively.
+P_n, its derivatives, and the Bernoulli polynomial part are p-integral.
+Consequently
+
+                v_p(cont(f_n)) >= min(0,min_packets h).     (5.1)
+
+Let this last bound be b_e(x). For beta=u/v in the gamma table, let
+theta_e(beta) be the member of (0,1] congruent to u*e^(-1)/v modulo 1.
+Away from a bounded neighborhood of the affine boundaries, Legendre
+counting gives the determinant contribution
+
+       d_e(x)=sum_(A,beta,m) m floor(Ax+1-theta_e(beta)).
+
+By (3.1), a bound for the dual content is b_e(x)+d_e(x). This is the
+forward bound in the common normalization used throughout the calculation.
+
+For x=L+f, L>=1 and 0<f<1, this bound is EXACTLY periodic in L.
+Indeed every high-root endpoint shifts by its integer slope times L;
+the difference of total interval lengths has coefficient
+(10+6+3)-(10+9)=0. The endpoint strips have the same labels. All intervals
+are nonempty from L=1 onward. Also sum A*m=0 in d_e. Thus this is a
+symbolic count argument for every L, not a test at a few integer lifts.
+It supplies the entire infinite tail x>=20.
+
+6. THE DUAL PACKET LEMMA USED IN THE FINITE RANGE
+
+We use the dual presentation only for finitely many lifts 0<=L<20.
+For the same large prime, write a pole s=r+pT with r in {0,...,p-1}.
+The high numerator intervals for F_n are
+
+  (-10x-y,-y), (-8x-y,x-y), both on the integer lattice;
+
+and the high denominator intervals are
+
+  (2x-y,12x-y), offset 0;
+  (-y,6x-y), offset theta=1/3 (e=1) or 2/3 (e=5);
+  (2x-y,5x-y), offset 1/2.
+
+The constant endpoint offsets are (-1,-1),(-1,-1),(0,1),
+(1/3,4/3),(1/2,3/2), respectively. These are used literally in the code.
+
+For a packet define its monic high kernel
+
+             f(T)=prod_numerator(T-a)/prod_denominator(T-b),
+             h=deg(f),  R_b=Res_{T=b} f(T).
+
+At a high pole b=j+theta, the p-divisible terms of the original harmonic
+correction, multiplied by p^2, equal exactly H_theta^(2)(j+1), with
+the integer case interpreted as H_j^(2). Denote this rational value by H(b).
+The remaining terms are p-integral. Modulo p they are a common function
+of r, minus a class-dependent constant: this follows by reducing a finite
+reciprocal-square sum modulo p and using sum_{a=1}^{p-1} a^(-2)=0 mod p.
+Subtract those class constants by an integral unipotent row operation.
+This preserves the minimum valuation of the 2x2 minors.
+
+Scale the resulting constant row by p^2, retain T,H and add the total
+residue row I+T+H. Taylor expansion of all the unit factors in the packet
+shows that its column vectors lie in the lattice generated by
+
+ p^(h+1+j) V_j,  j=j_min,...,5,
+
+ V_j=(-sum_b R_b b^j H(b),
+       sum_third R_b b^j, sum_half R_b b^j, sum_all R_b b^j).
+
+Here j_min=1 for r=0, otherwise 0. This is valid for BOTH selected
+columns s and s^2; using 1 for the latter at r=0 merely weakens the bound.
+The omitted Taylor terms are covered by arbitrary coordinate generators
+of weight h+7. No convergence or floating rank test is involved.
+
+The regular harmonic part is covered by the constant-row generator of
+weight
+
+  2+min(h+1+max(j_min,-h-1), h+2+j_min).                    (6.1)
+
+To see this, its common leading value multiplies the total residue of
+T^j f(T), which is zero while h+j<=-2. Its remaining part gains at
+least one power of p. This gives exactly the two terms in the minimum.
+
+Now impose the EXACT infinity-residue constraint I+T+H=0 on the selected
+columns. The generator list always contains a weight-zero pivot with
+total coordinate 1 or -1, and no negative-weight generator has a nonzero
+total coordinate. The certificate verifies these properties. Subtracting
+the pivot times the total coordinate therefore intersects the lattice
+with that hyperplane by integral operations. This is the factor missed
+by treating the packets independently without the infinity constraint.
+
+For each two-row projection, sort the remaining generators by weight.
+The least possible minor valuation is bounded below by the sum of the
+weight of its first nonzero projected vector and the weight of its first
+vector not rationally collinear with that vector. Subtract two if the
+constant row is in the projection, undoing its p^2 scaling. Take the
+minimum over the three projections. Rational collinearity is checked
+exactly. A determinant becoming zero modulo p can only improve this
+lower bound. This proves the dual bound calculated by cell().
+
+For the finitely many lifts used, the high kernels and rational coefficients
+belong to a finite list. Primes dividing their denominators can be excluded
+as a fixed finite set; Section 8 bounds their total contribution by o(n).
+For all other sufficiently large primes, the lattice argument above is
+uniform in n and p throughout the indicated chamber.
+
+7. EXACT CHAMBERS; WHY A FINITE CALCULATION IS SUFFICIENT
+
+For e=1,5 define tau=2/3,1/3 respectively. Use the affine lines
+
+ (-10,0),(0,0),(-8,0),(1,0),(2,0),(12,0),
+ (0,tau),(6,tau),(2,1/2),(5,1/2),
+
+where (u,a) means ux+a. The walls in [0,1] are all intersections of
+differences of these lines with an integer. There are exactly 132 open
+intervals for each e. All determinant-profile walls lie in the same list;
+the verifier checks this inclusion.
+
+For a fixed lift L, the high-root lists are constant between the resulting
+affine y-cuts. Their boundary strips are enumerated with the exact rational
+offsets stated above. Thus selecting an interior rational x and one point
+in each y-stratum is an exhaustive chamber calculation. The interior
+point uses denominator 1009 to avoid accidental coincidences of unrelated
+scaled boundaries. It is not a sample of particular primes.
+
+At every prime keep the MAXIMUM of the forward and dual lower bounds
+in the common normalization (3.1). Do not add their gains.
+
+The verifier computes:
+  * both presentations for all 264 chambers at L=0;
+  * both presentations for all 264 chambers at L=1;
+  * the dual bound at L=2,...,19 for the 35 chambers where it improves
+    the elementary forward bound at L=1;
+  * the elementary periodic forward bound alone for every L>=20.
+
+This is 1,158 exact dual chamber computations. There is no assumption that
+the dual answer at L=1 repeats for higher L. In chambers not selected for
+the extra finite computation we simply retain the valid forward bound.
+
+Points within O(1/p) of an affine x-wall are harmless exceptions. For
+p>sqrt(132n+30), there are O(sqrt(n)) such possible primes, since there
+are finitely many walls per lift and O(sqrt(n)) lifts. Their elementary
+valuation loss is O(log n/log p), so the total loss is o(n). Rational
+coboundaries also cost only O(log n). Hence no endpoint range is silently
+discarded at exponential scale.
+
+8. SMALL PRIMES, AND THE EXCEPTIONAL PRIMES 2 AND 3
+
+For 5<=p<=sqrt(132n+30), factorial/progression counting in the forward
+residues and the determinant gamma product gives
+
+               v_p(cont(w_n)) >= -O(log n/log p),
+
+uniformly in p and in the pole index. The terms linear in n cancel:
+there are 19n numerator and 19n denominator factors in the forward kernel,
+and sum A*m=0 in the determinant product. Derivatives and the harmonic
+corrections cost only a bounded number of additional logarithmic terms.
+Summing the resulting losses gives O(sqrt(n) log n)=o(n).
+
+At 2 and 3 the rational thirds and halves must be counted separately.
+For every forward Laurent coefficient, and hence for every forward
+readout, Legendre's formula gives the lower bounds
+
+  v_2(cont(f_n)) >= -6n-O(log n),
+  v_3(cont(f_n)) >= -9n-O(log n).
+
+For example, at 2 the integer numerator block contributes 10n, the
+third block 6n, the half block -3n, and the integer denominator blocks
+-19n. At 3 these contributions are 5n,-6n,3n/2,-19n/2.
+Simple-pole residues, derivatives, harmonic sums and P_n change these
+counts by only O(log n). The polynomial part has fixed denominators.
+
+The gamma product in Section 4 contributes 18n at 2 and 27n at 3, up to
+O(log n). Therefore
+
+  v_2(cont(w_n)) >=12n-O(log n),
+  v_3(cont(w_n)) >=18n-O(log n).
+
+The certificate independently computes those slopes from the gamma table.
+These primes contribute 12 log 2+18 log 3 to the content rate.
+
+9. PRIME DENSITY AND THE ARITHMETIC RESULT
+
+The prime number theorem in progressions 1 and 5 modulo 6 gives density
+one half for each class. A chamber a<n/p-L<b carrying lower valuation m
+contributes
+
+                  (m/2)[1/(L+a)-1/(L+b)].
+
+Let m_e,L(a,b) denote the finite bounds actually computed, and f_e(a,b)
+the elementary periodic forward bound. The certified lower content rate is
+
+ beta_20 =12 log 2+18 log 3
+          +1/2 sum_{e,cells,0<=L<20}
+                m_e,L(a,b)[1/(L+a)-1/(L+b)]
+          +1/2 sum_{e,cells} f_e(a,b)
+                [psi(20+b)-psi(20+a)].                    (9.1)
+
+The interval starting at a=0 has zero valuation at L=0 and contributes zero.
+The digamma difference is the exact identity for the convergent sum over
+L>=20. Boundedness of the periodic profile controls the remaining prime
+tails uniformly, so PNT may be applied by truncation and then taking the
+truncation to infinity.
+
+All finite weights in (9.1) are exact rational numbers. The certificate
+evaluates the logarithms and digamma values with Arb interval arithmetic.
+It establishes
+
+                beta_20 > -1.3335,
+  liminf (log cont(w_n))/n >= beta_20.                     (9.2)
+
+The unproved periodic extension of the observed dual profile would suggest
+about -1.32853. That stronger number is NOT used. The proved forward tail
+loses about 0.00493 and still leaves a positive margin.
+
+10. RAW HEIGHT WITHOUT AN ADDITIONAL SPECTRAL ASSUMPTION
+
+The double coefficients of R_n itself are positive for 0<=k<=8n+1.
+The polynomial P_n costs only a polynomial factor. Stirling's formula
+therefore bounds q^f_n by the maximum of the positive summand exponent
+
+ phi(y)=(y+12)log(y+12)+(y+6)log(y+6)+(y+5)log(y+5)
+        -2(y+2)log(y+2)-2y log y
+        -(10-y)log(10-y)-(y+1)log(y+1)-(8-y)log(8-y),
+           0<=y<=8.
+
+The unique maximum is at the positive root y_* of
+
+                 -180y^3-720y^2+6480y+28800=0.
+
+Endpoint terms have the same uniform Stirling control. The leading value
+of P_n(yn)/n^4 at the saddle is 6480-720y-180y^2<0. Positivity of the
+double coefficients and the strict saddle therefore also show that q^f_n
+is nonzero for all sufficiently large n. Thus
+
+  limsup log|q^f_n|/n <= phi(y_*)
+                      =32.90814001456892890464655... .
+
+The determinant gamma product has rate
+
+  sigma_det=log C_0+sum m A log A
+           =30.22789934008875177435522... .
+
+Equation (3.1) gives the unconditional raw cofactor height upper rate
+
+  alpha_raw <=phi(y_*)+sigma_det
+             =63.13603935465768067900177... <63.13604.
+
+Combining this with (2.4) and (9.2), for EVERY fixed A,B,
+
+             limsup log q_n(A,B)/n <64.46954.              (10.1)
+
+This proof uses a terminating positive sum for the raw height; it does not
+assume the raw-height conclusion from matrix asymptotics.
+
+11. NONVANISHING AND THE FINAL IMPLICATION
+
+Let T(n)=Q(n)^(-T). The rational function
+
+  det[e_0,T(n)e_0,T(n)T(n+1)e_0]
+
+has at n=0 the nonzero exact value
+
+ -2091300253601094307522404926786910050752593888802048297
+ /255217484616350899365532475817984000.
+
+The certificate verifies this using the two exact matrices Q(0),Q(1).
+Thus it has only finitely many zeros or poles. The three consecutive
+state vectors are independent for all sufficiently large n. The fixed
+row determinant det[D;X;Y]=-117573120 is also checked. For nonzero A,B,
+the error row 3(A+B)X+2(A-B)Y-3 alpha(A,B) D is nonzero. It cannot
+annihilate three consecutive sufficiently late states. Consequently the
+approximation error is nonzero infinitely often, without presupposing
+irrationality of its limit.
+
+If alpha(A,B)=u/v were rational, each such nonzero error would be at least
+1/(|v|q_n(A,B)). This contradicts the derived exponential error bound and
+(10.1), since E>64.47615>64.46954. Hence alpha(A,B) is irrational.
+The denominators consequently tend to infinity. Finally
+
+  liminf delta_n(A,B)
+     >= E/(alpha_raw-beta_20)-1
+     > 64.47615/64.46954-1
+     > 0.00010.
+
+The coefficient map (A,B) -> (A+B,(2/3)(A-B)) is invertible over Q.
+Irrationality of every nonzero rational combination of C,Z is therefore
+equivalent to linear independence of 1,C,Z.
+
+12. REPRODUCTION
+
+Run, from any directory with Python and python-flint installed,
+
+  python positive_delta_certificate.py --fresh
+
+It requires no saved approximants, target values, empirical prime profile,
+or ramanujantools installation. It checkpoints exact chamber computations
+and writes result.json in its output directory. The source hash binds a
+checkpoint to this version of the verifier. The final JSON is written only
+after all exact and interval-arithmetic assertions pass.
+
+The optional symbolic_pairing_certificate.py independently reconstructs
+the two CMF matrices using ramanujantools and verifies all twelve rational
+pairing identities, the exact determinant gamma factorization, the zero
+infinity residue, and the forward gamma shift. Its output is included as
+symbolic_pairing_result.json. This symbolic check needs SymPy and
+ramanujantools in addition to the arithmetic verifier's dependencies.
+
+The code certifies the arithmetic calculation conditional on the mathematical
+lemmas in this text, in the ordinary sense of a computer-assisted proof;
+it is not a formal proof-assistant development. The standalone arithmetic verifier does not check the analytic argument;
+Section 1A and analytic_limit_certificate.py supply that part separately.
+
+As a separate regression check, the combined chamber bound was compared
+with exact prime valuations at N=3928 and N=20480, excluding the stated
+boundary/coboundary exceptions. All 71,593 eligible comparisons passed.
+Those finite checks are recorded in the earlier regression run (not included in this bundle)
+and are not used to justify the uniform inequalities.
+
+Numerical uncertainty: no empirical delta enters the arithmetic certificate.
+The certified delta is a conservative lower bound, not an
+estimate of the optimal limiting delta.
+

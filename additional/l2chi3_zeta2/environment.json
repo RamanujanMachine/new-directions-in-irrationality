@@ -1,0 +1,24 @@
+{
+  "ramanujantools_direct_url": {
+    "url": "https://github.com/RamanujanMachine/ramanujantools.git",
+    "vcs_info": {
+      "commit_id": "e87622c8637b9a292364deea85cb201a00ca3ffc",
+      "requested_revision": "e87622c8637b9a292364deea85cb201a00ca3ffc",
+      "vcs": "git"
+    }
+  },
+  "installed_source_hashes": {
+    "matrix.py": "aa686239e47d0c24c1653885a15462d4e2c3fda6ef5f3b5634ec55258ddd6f72",
+    "cmf/meijer_g.py": "c875c3318de72349ffebc095ab866d4b930f438bb8c5fa929834c3332080ab50",
+    "cmf/pfq.py": "403f7eacec2484c9338789e7a2fe8b3d82a69847df120d47a8727b1faa190b27",
+    "asymptotics/reducer.py": "f75a06c2e465e7217cd8d158e407df438e492a9d689150c60b6eeb2c57583b0d",
+    "asymptotics/series_matrix.py": "3f88c469735df8ce403bdbd77d09e54a208071f683860f1b23ca26af838a6c96",
+    "asymptotics/growth_rate.py": "dedffde9c73e7682b2a64fb6315f5cb68109f6d3dd4f91d08c4cd3fe83a6e178"
+  },
+  "versions": {
+    "ramanujantools": "0.0.8",
+    "sympy": "1.13.3",
+    "python-flint": "0.8.0",
+    "ipython": "9.10.0"
+  }
+}

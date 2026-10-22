@@ -1,0 +1,77 @@
+{
+  "algebraic_checks_passed": true,
+  "initial_state": [
+    "14823*C/70 + 6477*Z/35 - 789349/1680",
+    "16362*C/35 + 8676*Z/35 - 108221/140",
+    "23976*C/35 + 10368*Z/35 - 35787/35"
+  ],
+  "initial_state_values": [
+    "[0.00257002356964242656169530548378 +/- 4.70e-34]",
+    "[-0.00377017749938993784015116199104 +/- 2.19e-33]",
+    "[0.00523019110191848667675029866364 +/- 2.81e-33]"
+  ],
+  "denominator_initial_pairing": "3888",
+  "C_initial_pairing": "3888*C",
+  "Z_initial_pairing": "3888*Z",
+  "positive_integral_prefactor": "gamma(9*n + 2)/(gamma(3*n + 2)*gamma(6*n + 2))",
+  "integral_numerator_exponents": [
+    "12*n + 1",
+    "10*n + 4/3",
+    "12*n + 3/2",
+    "11*n + 1"
+  ],
+  "beta_bound": "gamma(1/3)*gamma(2*n)*gamma(2*n + 1/2)*gamma(8*n + 2)*gamma(9*n + 2)*gamma(10*n + 2)*gamma(11*n + 2)/(gamma(5*n + 5/2)*gamma(6*n + 7/3)*gamma(12*n + 2)*gamma(19*n + 4))",
+  "beta_exponential_base": "228249336488800000/1978419655660313589123979",
+  "beta_exponential_base_decimal": "[1.15369525285382354677061439612e-7 +/- 2.10e-37]",
+  "log_beta_base": "[-15.9751255967302284071484882105 +/- 4.36e-29]",
+  "derivative_bounds": [
+    "1",
+    "10*n + 2",
+    "100*n**2 + 60*n + 8"
+  ],
+  "unscaled_small_root": "[5.1071237577770912000754094247e-15 +/- 3.68e-44]",
+  "unscaled_other_root_modulus": "[51264502899968.9733401643894700 +/- 7.92e-17]",
+  "observation_determinant": "22488133988255638843697971020794/3580793883472610909356222529573",
+  "analytic_assumptions_remaining": [],
+  "interpretation": "The written positive-integral argument proves recessiveness; exact initial values identify both dual limits.",
+  "quadrature_role": "Independent numerical regression only; no quadrature is used as a proof premise.",
+  "quadrature_regressions": [
+    {
+      "dps": 50,
+      "k": 0,
+      "barnes": "0.0025700235696424265616953054837804697",
+      "absolute_difference": "1.3073787e-48"
+    },
+    {
+      "dps": 50,
+      "k": 1,
+      "barnes": "-0.003770177499389937840151161991037814",
+      "absolute_difference": "2.8498458e-48"
+    },
+    {
+      "dps": 50,
+      "k": 2,
+      "barnes": "0.0052301911019184866767502986636428009",
+      "absolute_difference": "4.1926595e-48"
+    },
+    {
+      "dps": 80,
+      "k": 0,
+      "barnes": "0.0025700235696424265616953054837804697",
+      "absolute_difference": "4.6518601e-78"
+    },
+    {
+      "dps": 80,
+      "k": 1,
+      "barnes": "-0.003770177499389937840151161991037814",
+      "absolute_difference": "6.4870839e-78"
+    },
+    {
+      "dps": 80,
+      "k": 2,
+      "barnes": "0.0052301911019184866767502986636428009",
+      "absolute_difference": "9.62235e-78"
+    }
+  ],
+  "seconds": 0.8117108340011328
+}

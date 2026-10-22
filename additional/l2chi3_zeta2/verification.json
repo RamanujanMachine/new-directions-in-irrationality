@@ -1,0 +1,21 @@
+{
+  "all_cells_executed": true,
+  "code_cells": 15,
+  "total_cells": 30,
+  "output_errors": 0,
+  "execution_engine": "IPython InteractiveShell (sequential persistent namespace)",
+  "execution_seconds": 98.80537425000512,
+  "verified_at": "2026-10-22T22:03:09.163529+00:00",
+  "matrix_cache_matches_previously_reconstructed_matrices": true,
+  "exact_matrices_sha256": "96f964ed1b8bf68d0df44209536518a7812377f219497fca8089ab9c38fe2938",
+  "arithmetic_chambers": 1158,
+  "arithmetic_execution_mode": "source-hashed checkpoint",
+  "prior_fresh_execution_record": "prior_fresh_notebook_execution.log",
+  "certificate_sha256": "949816687cdd5d836326a88be7dca030f1a0853174de395eab0d856557558932",
+  "analytic_certificate_sha256": "ef760ef7efe2e1a5004a6bd2fad5d35b765f792d1774fb66e29ce74daaf32791",
+  "analytic_checks_passed": true,
+  "analytic_assumptions_remaining": [],
+  "scope": "analytic limits and error bound derived; arithmetic uses the written valuation lemmas",
+  "error_exponent": "64.47615969189776924414743966571117329394928449421936402",
+  "delta_lower": "[0.000103328938306945387419974368047054100806454852732317739160357744 +/- 1.87e-67]"
+}

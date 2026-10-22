@@ -1,0 +1,247 @@
+## Analytic completion: the initial MG state and its recessiveness
+
+This proves the two limit identifications used in the arithmetic argument.
+The gamma/beta integral argument follows the construction in
+Appendix B.1 of arXiv:2610.27799 (the zeta(3), zeta(4) recessiveness lemma).
+No irrationality or linear-independence assumption is used.
+
+### 1. The actual special-function state
+
+Let theta = z d/dz and
+\[
+G_n(z)=G_{5,5}^{5,2}\!\left(
+z\;\middle|\;
+\begin{matrix}
+-1-10n,-1-8n;\ 2+12n,7/3+6n,5/2+5n\\
+0,n,2n,1/3,2n+1/2
+\end{matrix}\right).
+\]
+Set $\mathcal G_n=(G_n(1),(\theta G_n)(1),(\theta^2G_n)(1))$.
+The contiguous identities defining the Meijer-G CMF, and the zero lower-left
+block of its four-dimensional trajectory matrix, give
+\[
+\mathcal G_{n+1}=\mathcal G_n Q(n).
+\]
+This is the special-function solution of the same restricted matrix used in
+the arithmetic calculation.
+
+On the upward line $\Re w=1/2$, the Mellin--Barnes formula is
+\[
+G_n(z)=\frac1{2\pi i}\int
+\frac{\Gamma(w)\Gamma(w+n)\Gamma(w+2n)\Gamma(w+1/3)
+\Gamma(w+2n+1/2)\Gamma(10n+2-w)\Gamma(8n+2-w)}
+{\Gamma(w+12n+2)\Gamma(w+6n+7/3)\Gamma(w+5n+5/2)}
+z^{-w}\,dw .
+\]
+The line separates all left and right poles for every integer $n\ge0$.
+For $z>0$, this integral and its first two theta derivatives converge
+absolutely. Along the vertical line the gamma factors give exponential
+decay in the imaginary direction.
+
+### 2. A positive integral in Laplace form
+
+Apply Euler's beta integral to the three ratios
+\[
+\frac{\Gamma(w+2n)}{\Gamma(w+12n+2)},\quad
+\frac{\Gamma(w+1/3)}{\Gamma(w+6n+7/3)},\quad
+\frac{\Gamma(w+2n+1/2)}{\Gamma(w+5n+5/2)}.
+\]
+Their beta differences are $10n+2,6n+2,3n+2$.
+For the fourth integration use
+\[
+\Gamma(w+n)\Gamma(8n+2-w)
+=\Gamma(9n+2)\int_0^1 r^{w+n-1}(1-r)^{8n+1-w}\,dr.
+\]
+Every beta parameter has positive real part on the chosen contour.
+Absolute convergence permits interchanging these integrations.
+Writing $u=xyt$ and $H_z=z(1-r)+ur$, Mellin inversion gives
+\[
+\frac1{2\pi i}\int
+\Gamma(w)\Gamma(10n+2-w)
+\left(\frac{z(1-r)}{ur}\right)^{-w}dw
+=\Gamma(10n+2)\left(\frac{ur}{H_z}\right)^{10n+2}.
+\]
+Consequently
+\[
+\boxed{
+G_n(z)=\frac{\Gamma(9n+2)}{\Gamma(6n+2)\Gamma(3n+2)}
+\int_{[0,1]^4}
+\frac{
+x^{12n+1}y^{10n+4/3}t^{12n+3/2}r^{11n+1}
+(1-x)^{10n+1}(1-y)^{6n+1}(1-t)^{3n+1}(1-r)^{8n+1}
+}{[z(1-r)+xytr]^{10n+2}}\,dx\,dy\,dt\,dr .
+}
+\]
+In particular, $G_n(1)>0$.
+
+This is a Laplace integral. At $z=1$, let $H=1-r+xytr$ and
+\[
+\Phi=
+\frac{x^{12}y^{10}t^{12}r^{11}
+(1-x)^{10}(1-y)^6(1-t)^3(1-r)^8}{H^{10}},
+\quad
+\omega=\frac{x\,y^{4/3}t^{3/2}r(1-x)(1-y)(1-t)(1-r)}{H^2}.
+\]
+Then $G_n(1)=\Gamma(9n+2)/(\Gamma(6n+2)\Gamma(3n+2))
+\int\omega\,\Phi^n$.
+An exact saddle evaluation is unnecessary to identify the recessive mode.
+The following elementary beta bound already separates it from both other modes.
+
+### 3. An exponential upper bound for the whole state
+
+Since $H- xyt=(1-r)(1-xyt)\ge0$, replacing $H$ by $xyt$ in the
+denominator gives, for $n\ge1$,
+\[
+\begin{aligned}
+0<G_n(1)\le\beta_n
+&=\frac{\Gamma(9n+2)}{\Gamma(6n+2)\Gamma(3n+2)}
+B(2n,10n+2)B(1/3,6n+2)\\
+&\qquad {}\cdot B(2n+1/2,3n+2)B(11n+2,8n+2)\\
+&=\frac{\Gamma(1/3)\Gamma(9n+2)\Gamma(2n)\Gamma(10n+2)
+\Gamma(2n+1/2)\Gamma(11n+2)\Gamma(8n+2)}
+{\Gamma(12n+2)\Gamma(6n+7/3)\Gamma(5n+5/2)\Gamma(19n+4)}.
+\end{aligned}
+\]
+Gamma recurrence, or Stirling's formula, gives the exact ratio limit
+\[
+\eta=\lim_{n\to\infty}\frac{\beta_{n+1}}{\beta_n}
+=\frac{9^9\,2^4\,10^{10}\,11^{11}\,8^8}
+{12^{12}\,6^6\,5^5\,19^{19}}
+=\frac{228249336488800000}{1978419655660313589123979}
+<10^{-6}.
+\]
+Numerically, $\eta=1.15369525285382354677\ldots\,10^{-7}$.
+Thus $\beta_n=\exp(n\log\eta+o(n))$.
+
+To bound derivatives, put $a=10n+2$ and $h=z(1-r)/H_z$, so $0\le h\le1$.
+On the positive integrand, theta differentiation multiplies by
+\[
+-ah,\qquad a(a+1)h^2-ah
+\]
+for the first and second derivatives respectively. Differentiation under the
+integral is justified on compact positive $z$ intervals by domination.
+Therefore, at $z=1$,
+\[
+|\theta G_n(1)|\le a\beta_n,\qquad
+|\theta^2G_n(1)|\le a(a+2)\beta_n.
+\]
+All three components are exponentially small, and the state is nonzero because
+its first component is positive. This is a bound on the entire state, not just
+one readout.
+
+### 4. Identification of the recessive spectral mode
+
+In the notebook's normalization,
+\[
+T=\lim_{n\to\infty}
+\frac{D_g(n)^{-1}Q(n)D_g(n+1)}{Q_{00}(n)},
+\quad D_g(n)=\operatorname{diag}(1,n^{-1},n^{-2}),
+\quad \lim Q_{00}(n)=s_\infty=156660580321280.
+\]
+The three simple roots of $T$ are $r,\lambda,\bar\lambda$, with
+\[
+r=3.25999287587431764\ldots\,10^{-29},\qquad
+|\lambda|=R=0.32723294395332618\ldots.
+\]
+The actual, unscaled exponential root moduli of the state recurrence are
+\[
+s_\infty r=5.1071237577770912\ldots\,10^{-15},
+\qquad
+s_\infty R=5.1264502899968973\ldots\,10^{13}
+\quad\text{(twice)}.
+\]
+Rational root isolation verifies
+$0<s_\infty r<\eta<1<s_\infty R$.
+The exact first-order gauge and the summable-perturbation argument in the
+notebook supply a fundamental solution basis with these exponential moduli.
+Polynomial gauges do not change exponential growth. A nonzero component in
+the two-dimensional growing sector would have norm
+$(s_\infty R)^{n+o(n)}$; oscillations of the conjugate roots cannot cancel
+the whole state vector because their asymptotic eigenvectors are independent.
+The bound in Section 3 rules out that sector. Hence $\mathcal G_n$ is the
+nonzero solution in the one-dimensional recessive sector.
+
+### 5. Exact evaluation at the initial point
+
+With $s=-w$, the Barnes kernel at $n=0$ is $\pi^2\csc^2(\pi s)F_0(s)$, where
+\[
+F_0(s)=\frac{(s+1)^2}
+{(-s)(1-s)(1/3-s)(4/3-s)(1/2-s)(3/2-s)}.
+\]
+For any $\rho\ge0$, closing the contour $\Re s=-1/2$ to the left gives
+\[
+\frac1{2\pi i}\int
+\frac{\pi^2\csc^2(\pi s)}{\rho-s}\,ds
+=\sum_{m\ge1}\frac1{(\rho+m)^2}
+=\psi_1(\rho+1).
+\]
+The left vertical edge tends to zero and the horizontal edges vanish
+exponentially. The orientation here is fixed, giving the positive sign.
+The exact partial fraction expansions of $s^kF_0(s)$, $k=0,1,2$, therefore
+evaluate the three initial moments.
+
+Using
+$\psi_1(1)=Z$, $\psi_1(1/3)=4Z+9C/2$, and $\psi_1(1/2)=3Z$,
+which follow directly by splitting their defining reciprocal-square series,
+the result is
+\[
+\boxed{
+\mathcal G_0=
+\left(
+\frac{14823}{70}C+\frac{6477}{35}Z-\frac{789349}{1680},\
+\frac{16362}{35}C+\frac{8676}{35}Z-\frac{108221}{140},\
+\frac{23976}{35}C+\frac{10368}{35}Z-\frac{35787}{35}
+\right).
+}
+\]
+Equivalently,
+$\mathcal G_0=(1,9C/2+3Z,2Z)\widehat B_0$ with the endpoint matrix already
+derived in the notebook.
+The exact readout identities are
+\[
+D\mathcal G_0^T=3888,\qquad
+X\mathcal G_0^T=3888C,\qquad
+Y\mathcal G_0^T=3888Z.
+\]
+In particular the limiting denominator is nonzero, without assuming any
+irrationality or independence.
+
+### 6. Dual convergence and the identified limits
+
+The checked observation determinant
+\[
+\det\begin{pmatrix}e_0^T\\e_0^TT\\e_0^TT^2\end{pmatrix}
+=\frac{22488133988255638843697971020794}
+{3580793883472610909356222529573}\ne0
+\]
+shows that the terminal $e_0$ sees the minimal mode in the inverse-transpose
+product. With the right-product convention, dual convergence recovers the
+transpose of the initial recessive row. Thus, for suitable nonzero scalars $a_N$,
+\[
+W_N^{-T}e_0
+=a_N\left(\mathcal G_0^T+
+O\left(e^{-EN+o(N)}\right)\right),
+\qquad E=\log(R/r)=64.47615969189776924414\ldots.
+\]
+Here $D_g(N)^Te_0=e_0$, so the terminal gauge causes no moving readout.
+Taking the three exact pairings above proves, without a limit assumption,
+\[
+\frac{XW_N^{-T}e_0}{DW_N^{-T}e_0}\longrightarrow C,\qquad
+\frac{YW_N^{-T}e_0}{DW_N^{-T}e_0}\longrightarrow Z,
+\]
+and both errors are at most $\exp(-EN+o(N))$.
+Every fixed rational linear combination inherits this upper error rate.
+
+This proves both analytic inputs of the arithmetic
+argument. The arithmetic calculation, its written prime-valuation lemmas,
+and its numerical lower comparison are unchanged.
+
+Sources for the standard integral identities:
+https://dlmf.nist.gov/16.17.E1
+https://dlmf.nist.gov/5.12.E1
+https://dlmf.nist.gov/5.13.E1
+
+The accompanying analytic_limit_certificate.py checks the finite rational
+algebra, beta exponents and cancellations, root separation, and initial
+readout identities. Barnes quadrature at 50 and 80 digits is included only
+as an independent regression; no numerical quadrature is used in the proof.

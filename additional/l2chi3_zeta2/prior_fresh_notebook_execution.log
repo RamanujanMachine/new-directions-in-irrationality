@@ -1,0 +1,127 @@
+CELL 1: import sys, json, math, time, hashlib, subprocess, importlib.metadata, csv
+{'ramanujantools': '0.0.8', 'sympy': '1.13.3', 'python-flint': '0.8.0'}
+Output directory: notebook_outputs
+CELL 1 DONE (0.24s)
+CELL 3: mg_start = (-1,-1,2,sp.Rational(7,3),sp.Rational(5,2),
+MG(5,2,5,5,1) 
+  initial = (-1, -1, 2, 7/3, 5/2, 0, 0, 0, 1/3, 1/2) 
+  direction = (-10, -8, 12, 6, 5, 0, 1, 2, 0, 2)
+pFq(5,4,1) 
+  initial = (-1, -1, 2, 7/3, 5/2, 1, 1, 4/3, 3/2) 
+  direction = (-10, -8, 12, 6, 5, 1, 2, 0, 2)
+Native dimensions: (4, 4) (4, 4)
+Construction seconds: 0.224
+Exact preserved block: G(n)J = JQ(n); restricted dimension = 3.
+CELL 3 DONE (0.33s)
+CELL 5: D = Matrix([[243648,-498096,264600]])
+CELL 5 DONE (0.00s)
+CELL 7: K = Matrix([
+All 12 pairing residuals are exactly zero.
+K has rank 3 for every n; lower 3-by-3 minor = 6.
+Pairing verification seconds: 20.739
+Forward A,B-dependent initial/readout matrix:
+CELL 7 DONE (20.77s)
+CELL 9: from flint import fmpq as Rat, fmpz as ZZ
+CELL 9 DONE (0.00s)
+CELL 10: def smat(B):
+Endpoint, dual and moving-terminal forward fractions agree exactly at N=0,1,2,3.
+CELL 10 DONE (0.09s)
+CELL 12: depths = [20,40,80,160,320,640]
+N=20 complete in 0.01s; precision 2512 bits
+N=40 complete in 0.02s; precision 4512 bits
+N=80 complete in 0.08s; precision 8512 bits
+N=160 complete in 0.33s; precision 16512 bits
+N=320 complete in 1.57s; precision 32512 bits
+N=640 complete in 7.72s; precision 64512 bits
+
+Reduced-denominator delta (finite depth):
+target                    20          40          80         160         320         640
+C                 0.01181338  0.01556407  0.00810235  0.00604332  0.00041314  0.00013945
+zeta(2)           0.02235846  0.00735725  0.00898742  0.00610254  0.00042283 -0.00026701
+plus              0.01386030  0.01219753  0.00860519  0.00636346  0.00043306 -0.00032167
+minus             0.06203072  0.05634088  0.05403514  0.05421902  0.04893296  0.04922833
+2C                0.01181975  0.01556831  0.00810345  0.00604373  0.00041316  0.00013946
+4zeta(2)/3        0.02236352  0.00735807  0.00898793  0.00610271  0.00042284 -0.00026702
+A=2 B=1           0.01380423  0.00919462  0.00772752  0.00570495  0.00076676 -0.00014910
+A=1 B=2           0.01256310  0.00728655  0.00720616  0.00560987 -0.00005730 -0.00035191
+A=3 B=-1          0.01090457  0.00719206  0.00743949  0.00547155  0.00045958  0.00002982
+A=-2 B=3          0.01163565  0.00914101  0.00661369  0.00557948  0.00024160 -0.00016070
+N=80 higher-precision check passed.
+
+Later-window secant slopes (same two depths for E and H):
+C       80->160: E slope=64.476542685, H slope=64.220419169, delta slope=+0.003988194
+C      160->320: E slope=64.476567177, H slope=64.811021525, delta slope=-0.005160455
+C      320->640: E slope=64.476661490, H slope=64.485317746, delta slope=-0.000134236
+plus    80->160: E slope=64.475993712, H slope=64.211006133, delta slope=+0.004126825
+plus   160->320: E slope=64.476013441, H slope=64.828303108, delta slope=-0.005434195
+plus   320->640: E slope=64.476063708, H slope=64.545493489, delta slope=-0.001075672
+minus   80->160: E slope=64.476337886, H slope=61.149596475, delta slope=+0.054403326
+minus  160->320: E slope=64.476351943, H slope=61.777034681, delta slope=+0.043694510
+minus  320->640: E slope=64.476408953, H slope=61.433953254, delta slope=+0.049524010
+CELL 12 DONE (9.79s)
+CELL 14: normalized = Matrix(3,3,lambda i,j:sp.cancel(n**i*Q[i,j]/Q[0,0]/(n+1)**j))
+Limiting rational matrix T:
+Characteristic polynomial:
+Exact first-order gauge H:
+First-order gauge residual: zero in all 9 entries.
+lambda = 3.259992875874317641659696207940516079827e-29 ; power of n = 0.556365409481672126
+lambda = 0.2648235932673648722292552079638114764193 - 0.1922234742619173842910063619872265088373*I ; power of n = 0.556365409481672126
+lambda = 0.2648235932673648722292552079638114764193 + 0.1922234742619173842910063619872265088373*I ; power of n = 0.556365409481672126
+r = 3.259992875874317641659696207940516079827182785306938886e-29
+R = 0.3272329439533261852269393658588798450146118026595228069
+E = log(R/r) = 64.47615969189776924414743966571117329394928449421936402
+CELL 14 DONE (1.07s)
+CELL 15: # Every right eigenvector of T has a nonzero first coordinate.
+Terminal observability determinant = 22488133988255638843697971020794/3580793883472610909356222529573
+Readout determinant det[D;X;Y] = -117573120
+Full forward root moduli: [4.819107166359313, 2.461177670058748e-14, 4.80093930660203e-28, 4.80093930660203e-28]
+Full-forward top/second gap: 32.90814001456893
+Active pairing gap: 64.47615969189776
+CELL 15 DONE (0.62s)
+CELL 18: gamma_terms=[(12,sp.Rational(2,3),-1),(8,1,1),(5,sp.Rational(1,3),-1),
+Exact determinant/gamma normalization identity verified.
+Actual scalar denominator formula checked for every recorded mixture and depth.
+CELL 18 DONE (57.69s)
+CELL 20: arithmetic_source = r'''#!/usr/bin/env python3
+Arithmetic source SHA256: 949816687cdd5d836326a88be7dca030f1a0853174de395eab0d856557558932
+CELL 20 DONE (0.00s)
+CELL 21: certificate_dir=OUT/'certificate'
+Starting exact arithmetic certificate; progress follows.
+Base chambers for p mod 6 = 1 checked.
+Base chambers for p mod 6 = 5 checked.
+Lift 1/19: 528 exact chambers; 6.3s
+Lift 2/19: 563 exact chambers; 7.5s
+Lift 3/19: 598 exact chambers; 9.3s
+Lift 4/19: 633 exact chambers; 12.2s
+Lift 5/19: 668 exact chambers; 16.2s
+Lift 6/19: 703 exact chambers; 21.6s
+Lift 7/19: 738 exact chambers; 28.9s
+Lift 8/19: 773 exact chambers; 38.6s
+Lift 9/19: 808 exact chambers; 49.7s
+Lift 10/19: 843 exact chambers; 63.1s
+Lift 11/19: 878 exact chambers; 79.3s
+Lift 12/19: 913 exact chambers; 98.5s
+Lift 13/19: 948 exact chambers; 120.4s
+Lift 14/19: 983 exact chambers; 145.6s
+Lift 15/19: 1018 exact chambers; 174.6s
+Lift 16/19: 1053 exact chambers; 207.5s
+Lift 17/19: 1088 exact chambers; 244.5s
+Lift 18/19: 1123 exact chambers; 285.9s
+Lift 19/19: 1158 exact chambers; 331.6s
+exact_dual_chambers : 1158
+content_rate_lower : [-1.333458772445433396272377612397984241835443307958351708976182808127960341 +/- 4.84e-73]
+raw_cofactor_rate : [63.1360393546576806790017761456691744466621970433934138445747743222 +/- 3.99e-65]
+accepted_error_rate_lower : [64.47615969189776924414743966570680951746237714314951581260992539473447258703 +/- 2.37e-75]
+reduced_height_rate_upper : [64.46949812710311407527415375806715868849764035135176555355095713036 +/- 9.70e-66]
+delta_lower : [0.000103328938306945387419974368047054100806454852732317739160357744 +/- 1.87e-67]
+Fresh certificate seconds: 331.965
+CELL 21 DONE (331.97s)
+CELL 23: import importlib.util
+Three-consecutive-column determinant: -2091300253601094307522404926786910050752593888802048297/255217484616350899365532475817984000
+Certified coarse comparison: [0.0001025290392951462039282427019023247257542088868634707181096685349391355980 +/- 6.46e-77]
+Certified finer lower comparison: [0.000103328938306945387419974368047054100806454852732317739160357744 +/- 1.88e-67]
+Conclusion: for every fixed nonzero integer (A,B), liminf delta > 0.00010,
+conditional on the identification r_C -> C and r_Z -> zeta(2).
+Out[13]: 2522
+CELL 23 DONE (0.02s)
+ALL CELLS PASSED in 422.59s

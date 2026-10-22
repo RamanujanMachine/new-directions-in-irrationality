@@ -1,0 +1,101 @@
+{
+  "scope": "analytic limits and error bound derived; arithmetic uses the written valuation lemmas",
+  "analytic_assumptions_remaining": [],
+  "analytic_certificate_sha256": "ef760ef7efe2e1a5004a6bd2fad5d35b765f792d1774fb66e29ce74daaf32791",
+  "arithmetic_execution_mode": "source-hashed checkpoint",
+  "error_rate": "derived from exact matrix series, scalar asymptotics and observability",
+  "error_exponent": "64.47615969189776924414743966571117329394928449421936402",
+  "delta_lower": "[0.000103328938306945387419974368047054100806454852732317739160357744 +/- 1.87e-67]",
+  "arithmetic_chambers": 1158,
+  "versions": {
+    "ramanujantools": "0.0.8",
+    "sympy": "1.13.3",
+    "python-flint": "0.8.0"
+  },
+  "depths": [
+    20,
+    40,
+    80,
+    160,
+    320,
+    640
+  ],
+  "native_dimension": 4,
+  "restricted_dimension": 3,
+  "forward_image_dimension": 3,
+  "numerical_slopes": [
+    {
+      "target": "C",
+      "start": 80,
+      "end": 160,
+      "error_slope": 64.4765426850158,
+      "height_slope": 64.2204191686851,
+      "delta_slope": 0.003988194403682588
+    },
+    {
+      "target": "C",
+      "start": 160,
+      "end": 320,
+      "error_slope": 64.47656717711075,
+      "height_slope": 64.81102152523749,
+      "delta_slope": -0.00516045481548999
+    },
+    {
+      "target": "C",
+      "start": 320,
+      "end": 640,
+      "error_slope": 64.47666148982053,
+      "height_slope": 64.4853177463618,
+      "delta_slope": -0.00013423608417839628
+    },
+    {
+      "target": "plus",
+      "start": 80,
+      "end": 160,
+      "error_slope": 64.4759937122682,
+      "height_slope": 64.21100613267248,
+      "delta_slope": 0.004126824909863824
+    },
+    {
+      "target": "plus",
+      "start": 160,
+      "end": 320,
+      "error_slope": 64.47601344141576,
+      "height_slope": 64.82830310801911,
+      "delta_slope": -0.005434195400986441
+    },
+    {
+      "target": "plus",
+      "start": 320,
+      "end": 640,
+      "error_slope": 64.47606370777237,
+      "height_slope": 64.54549348943364,
+      "delta_slope": -0.0010756720246105633
+    },
+    {
+      "target": "minus",
+      "start": 80,
+      "end": 160,
+      "error_slope": 64.47633788575787,
+      "height_slope": 61.14959647462007,
+      "delta_slope": 0.054403325662476965
+    },
+    {
+      "target": "minus",
+      "start": 160,
+      "end": 320,
+      "error_slope": 64.47635194339118,
+      "height_slope": 61.77703468112651,
+      "delta_slope": 0.043694510042407986
+    },
+    {
+      "target": "minus",
+      "start": 320,
+      "end": 640,
+      "error_slope": 64.47640895298817,
+      "height_slope": 61.43395325382388,
+      "delta_slope": 0.04952400973764304
+    }
+  ],
+  "certificate_sha256": "949816687cdd5d836326a88be7dca030f1a0853174de395eab0d856557558932"
+}

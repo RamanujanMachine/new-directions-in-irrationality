@@ -1,0 +1,5 @@
+ramanujantools @ git+https://github.com/RamanujanMachine/ramanujantools.git@e87622c8637b9a292364deea85cb201a00ca3ffc
+sympy==1.13.3
+python-flint==0.8.0
+ipykernel
+jupyter-client

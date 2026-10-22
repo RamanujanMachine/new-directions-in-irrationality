@@ -8,6 +8,7 @@ package root. They use the same dependencies as the notebooks.
 | `analytic/` | The two scripts explicitly named in Appendix B, recovered from `RotemCodes/` in the manuscript archive. Filenames are normalized and invocation instructions updated. Their mathematical algorithms are retained. |
 | `pi_integrals/` | Original shift matrices and four regenerating checks: nine polynomial identities, the I initial state, generic uniqueness at the seed, and the K initial state. Failed identity flags now also cause a nonzero exit. |
 | `recoveries/` | The supplied exact ζ(5) initial-state readout check. |
+| `l2chi3_zeta2/` | New result for the next arXiv version: linear independence of 1, ζ(2), L(2,χ₋₃) from one CMF trajectory. Self-contained notebook, analytic and arithmetic arguments, standalone verifiers and certificate records. Not run by `run_all.py`; see its `README.txt`. |
 | `gregory/` | A new explicit checker of the matrix, cubic, root-bound and threshold calculations printed in Appendix C. |
 
 The script `pi_I_axis_original.py` is data/source loaded by the checks; it
@@ -16,4 +17,4 @@ checked. The complete console logs are in the package-level `verification/`.
 
 The analytic root printouts, finite examples and symbolic identities have
 different scopes. See `../COVERAGE.md` before interpreting them as proof
-evidence. No additional irrationality claim is inferred from these checks.
+evidence. Apart from `l2chi3_zeta2/`, no additional irrationality claim is inferred from these checks.

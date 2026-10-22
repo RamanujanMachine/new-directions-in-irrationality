@@ -23,6 +23,23 @@ computational ingredients; it is not a complete formal verification of the
 paper. Exact identities, exhaustive finite certificates and finite examples
 are distinguished in the notebooks.
 
+## New result: linear independence of 1, ζ(2), L(2,χ₋₃)
+
+This result will appear in the next arXiv version of the paper. One explicit
+CMF trajectory, a single third-order recurrence in the style of Apéry, proves
+that 1, ζ(2) and L(2,χ₋₃) are linearly independent over ℚ. This is the main
+theorem of Calegari, Dimitrov and Tang
+([arXiv:2408.15403](https://arxiv.org/abs/2408.15403)), who proved it with
+arithmetic holonomy bounds. For every fixed nonzero integer pair (A,B), the
+approximations to A(L(2,χ₋₃)+2ζ(2)/3)+B(L(2,χ₋₃)−2ζ(2)/3) have
+approximation exponent δ > 0.0001.
+
+The notebook, the written arguments and the exact certificates are in
+[`additional/l2chi3_zeta2/`](additional/l2chi3_zeta2/). The notebook proves
+that the dual Meijer G state is recessive (a positive beta-integral bound),
+identifies both limits through the paper's Dual Convergence Theorem, derives
+the error rate, and certifies the arithmetic bound over 1,158 exact chambers.
+
 ## Lean formalizations (original repositories)
 
 The Lean formalizations are not copied into this repository. They live in
@@ -53,6 +70,8 @@ outputs and can be read without running them.
 | Simultaneous ζ(3), ζ(4) approximation | [Matrices, sums and minors](python/joint/01_matrices_sums_and_minors.ipynb) |
 | ζ(2) | [CMF and closed forms](python/zeta2/01_zeta2_cmf_and_closed_forms.ipynb) |
 | Pure ζ(3) | [Approximants and rates](python/pure_zeta3/01_pure_zeta3_approximants_and_rates.ipynb) |
+| Linear independence of 1, ζ(2), L(2,χ₋₃) (new) | [Notebook](additional/l2chi3_zeta2/calegari_cmf_positive_delta.ipynb) |
+| CMF recoveries of classical constructions (Appendix A) | [Recovery notebooks](https://github.com/RamanujanMachine/new_directions_notebooks/tree/e72f42723869ccc9d4c1ba11e80729a0d7b01b5e) (fork of Hila Barkan's repository) |
 | Additional exact calculations | [Additional calculations](additional/README.md) |
 | Lean sources and proof assumptions | [Lean guide](lean/README.md) |
 | Match a paper claim to code | [Coverage and statement map](COVERAGE.md) |
