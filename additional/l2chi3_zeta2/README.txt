@@ -3,7 +3,7 @@ LINEAR INDEPENDENCE OF 1, zeta(2), L(2,chi_{-3}) FROM ONE CMF TRAJECTORY
 an explicit Apery-style proof of the theorem of Calegari, Dimitrov and Tang,
 arXiv:2408.15403. To be included in the next arXiv version of the paper.
 
-Open calegari_cmf_positive_delta.ipynb. The notebook embeds the endpoint
+Open cmf_positive_delta.ipynb. The notebook embeds the endpoint
 evaluator, analytic checks and complete standalone arithmetic verifier.
 Install requirements.txt; the RamanujanTools Git commit is pinned.
 
@@ -39,7 +39,7 @@ arguments, not a proof-assistant formalization. Barnes quadrature is only
 an independent regression; it is not a premise of the proof.
 
 FILES
-- calegari_cmf_positive_delta.ipynb: complete executed notebook.
+- cmf_positive_delta.ipynb: complete executed notebook.
 - PROOF.txt: combined analytic and arithmetic description.
 - ANALYTIC_PROOF.txt: the new integral, initial-state and recessiveness argument.
 - analytic_limit_certificate.py and analytic_limit_result.json: exact checks.
@@ -53,7 +53,7 @@ FILES
 REPRODUCTION
 Run all notebook cells, or:
 
-    python run_notebook.py calegari_cmf_positive_delta.ipynb
+    python run_notebook.py cmf_positive_delta.ipynb
 
 A clean directory reconstructs the matrices. REBUILD_CMFS=True forces that
 reconstruction even if a cache is present. FRESH_ARITHMETIC=False reuses the
@@ -84,4 +84,4 @@ The 1,158 arithmetic chambers were loaded from the source-hashed checkpoint;
 the prior fresh calculation remains in prior_fresh_notebook_execution.log.
 The exact matrix cache matched the previously reconstructed matrices.
 See verification.json for the execution mode and integrity records.
-For console reproduction: python run_notebook.py calegari_cmf_positive_delta.ipynb
+For console reproduction: python run_notebook.py cmf_positive_delta.ipynb

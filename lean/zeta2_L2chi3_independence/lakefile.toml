@@ -1,0 +1,18 @@
+name = "Zeta2L2Chi3"
+version = "0.1.0"
+defaultTargets = ["Zeta2L2Chi3"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+maxSynthPendingDepth = 3
+
+[[require]]
+name = "PrimeNumberTheoremAnd"
+git = "https://github.com/AlexKontorovich/PrimeNumberTheoremAnd.git"
+rev = "127b50e33f6033e2147921167a117af96d9ba4ea"
+
+[[lean_lib]]
+name = "Zeta2L2Chi3"
+globs = ["Zeta2L2Chi3.+"]

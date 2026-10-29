@@ -40,10 +40,19 @@ that the dual Meijer G state is recessive (a positive beta-integral bound),
 identifies both limits through the paper's Dual Convergence Theorem, derives
 the error rate, and certifies the arithmetic bound over 1,158 exact chambers.
 
-## Lean formalizations (original repositories)
+The whole argument is also formalized in Lean 4 and checked by the kernel, with
+no `sorry` and no added axioms:
+[`lean/zeta2_L2chi3_independence/`](lean/zeta2_L2chi3_independence/)
+(`Zeta2L2Chi3.main_linIndep : LinearIndependent ℚ ![(1 : ℝ), C, Z]`).
 
-The Lean formalizations are not copied into this repository. They live in
-their original public RamanujanMachine repositories. The paper refers to
+## Lean formalizations
+
+The Lean formalization of the new result (linear independence of 1, ζ(2),
+L(2,χ₋₃)) is included in this repository, in
+[`lean/zeta2_L2chi3_independence/`](lean/zeta2_L2chi3_independence/).
+
+The formalizations for arXiv v1 are not copied into this repository. They live
+in their original public RamanujanMachine repositories. The paper refers to
 the following exact revisions:
 
 | Lean project | Pinned revision | Recorded commit date (UTC) |
@@ -70,7 +79,7 @@ outputs and can be read without running them.
 | Simultaneous ζ(3), ζ(4) approximation | [Matrices, sums and minors](python/joint/01_matrices_sums_and_minors.ipynb) |
 | ζ(2) | [CMF and closed forms](python/zeta2/01_zeta2_cmf_and_closed_forms.ipynb) |
 | Pure ζ(3) | [Approximants and rates](python/pure_zeta3/01_pure_zeta3_approximants_and_rates.ipynb) |
-| Linear independence of 1, ζ(2), L(2,χ₋₃) (new) | [Notebook](additional/l2chi3_zeta2/calegari_cmf_positive_delta.ipynb) |
+| Linear independence of 1, ζ(2), L(2,χ₋₃) (new) | [Notebook](additional/l2chi3_zeta2/cmf_positive_delta.ipynb), [Lean proof](lean/zeta2_L2chi3_independence/) |
 | CMF recoveries of classical constructions (Appendix A) | [Recovery notebooks](https://github.com/RamanujanMachine/new_directions_notebooks/tree/e72f42723869ccc9d4c1ba11e80729a0d7b01b5e) (fork of Hila Barkan's repository) |
 | Additional exact calculations | [Additional calculations](additional/README.md) |
 | Lean sources and proof assumptions | [Lean guide](lean/README.md) |

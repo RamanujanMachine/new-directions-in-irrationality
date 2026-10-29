@@ -1,7 +1,16 @@
 # Lean formalizations
 
-The Lean formalizations for the paper are kept in their original public
-RamanujanMachine repositories, not in this repository. Use the pinned
+## New result (next arXiv version)
+
+[`zeta2_L2chi3_independence/`](zeta2_L2chi3_independence/) is a complete
+kernel-checked proof that 1, L(2,χ₋₃) and ζ(2) are linearly independent over ℚ
+(`Zeta2L2Chi3.main_linIndep`), from one CMF trajectory. It has no `sorry` and
+uses only the standard axioms; see its README.
+
+## Formalizations for arXiv v1
+
+These are kept in their original public RamanujanMachine repositories, not in
+this repository. Use the pinned
 revisions below; later commits in those repositories are not part of the
 paper's supplement.
 
