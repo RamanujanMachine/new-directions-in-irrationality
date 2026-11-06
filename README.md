@@ -80,7 +80,7 @@ outputs and can be read without running them.
 | ζ(2) | [CMF and closed forms](python/zeta2/01_zeta2_cmf_and_closed_forms.ipynb) |
 | Pure ζ(3) | [Approximants and rates](python/pure_zeta3/01_pure_zeta3_approximants_and_rates.ipynb) |
 | Linear independence of 1, ζ(2), L(2,χ₋₃) (new) | [Notebook](additional/l2chi3_zeta2/cmf_positive_delta.ipynb), [Lean proof](lean/zeta2_L2chi3_independence/) |
-| CMF recoveries of classical constructions (Appendix A) | [Recovery notebooks](https://github.com/RamanujanMachine/new_directions_notebooks/tree/e72f42723869ccc9d4c1ba11e80729a0d7b01b5e) (fork of Hila Barkan's repository) |
+| CMF recoveries of classical constructions (Appendix A) | [Recovery notebooks](https://github.com/RamanujanMachine/new_directions_notebooks/tree/1cf693e927c53f415488b6e596e92269678edc26) (fork of Hila Barkan's repository) |
 | Additional exact calculations | [Additional calculations](additional/README.md) |
 | Lean sources and proof assumptions | [Lean guide](lean/README.md) |
 | Match a paper claim to code | [Coverage and statement map](COVERAGE.md) |
